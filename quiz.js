@@ -18,27 +18,28 @@ var enterHeight = document.getElementById("height");
 var enterChar = document.getElementById("char");
 var execute = document.getElementById("subBut");
 var clearbut = document.getElementById("clear");
-
+ document.addEventListener("keypress", growTree);
 execute.addEventListener("click", growTree);
 clearBut.addEventListener("click", clear);
+
 
 var treeGrower = {
 	rows : "",
 	character : ""
 }
 
+// function validate	
+// 	   (treeGrower.rows === "") {
+// 	   	alert("You must eneter a number");
+// 	   } else if (treeGrower.character === ""){
+// 	   	alert("You must enter a character");
+// 	   } else  if growTree() {
+// 	   	else validate()
+// 	   }
+	  
 function growTree (){
 	treeGrower.rows = enterHeight.value;
 	treeGrower.character = enterChar.value;
-	
-	
-  	 if (treeGrower.rows === "") {
-	   	alert("You must eneter a number");
-	   } else if (treeGrower.character === ""){
-	   	alert("You must enter a character");
-	   } else growTree();
-  	
-      
 	
 	for (var i = 0; i < treeGrower.rows; i++) {
 		
@@ -46,11 +47,9 @@ function growTree (){
 		var lines = treeGrower.character.repeat(sums);
 		var emptyMath = ((treeGrower.rows * 2 - 1) - sums)/2;
 		var newLines = " ".repeat(emptyMath);
-		console.log(lines + newLines);
+		console.log(newLines + lines) ;	
 	}
 }
-
-	
 
 function enterKeyPressed(keypress){
  if (keypress.which === 13) {
